@@ -1,0 +1,27 @@
+.section {
+  padding: 60px 0;
+}
+
+.list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+}
+
+.tag {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  padding: 12px 20px;
+  border-radius: 100px;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.tag:hover {
+  border-color: var(--accent);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+}

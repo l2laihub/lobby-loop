@@ -1,0 +1,485 @@
+.section {
+  padding: 40px 0 80px;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* Tablet Styles */
+.tabletWrapper {
+  animation: float 6s ease-in-out infinite;
+}
+
+.tablet {
+  background: #1a1a1c;
+  border-radius: 20px;
+  padding: 8px;
+  border: 3px solid #2a2a2e;
+  position: relative;
+}
+
+.tabletCamera {
+  position: absolute;
+  top: 50%;
+  left: 5px;
+  transform: translateY(-50%);
+  width: 5px;
+  height: 5px;
+  background: #3a3a3e;
+  border-radius: 50%;
+}
+
+.tabletScreen {
+  background: var(--bg-dark);
+  border-radius: 12px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+
+.tabletContent {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(180deg, #1a2332 0%, #141c28 100%);
+  padding: 10px 12px;
+}
+
+.tabletHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.tabletLogo {
+  width: 22px;
+  height: 22px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  opacity: 0.7;
+}
+
+.tabletTime {
+  text-align: right;
+}
+
+.timeDisplay {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.2;
+}
+
+.timeDate {
+  font-size: 0.5rem;
+  color: var(--text-muted);
+}
+
+.tabletMain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 8px;
+}
+
+.tabletTitle {
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.tabletSubtitle {
+  font-size: 0.55rem;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+}
+
+.tabletBtn {
+  width: 100%;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  padding: 12px 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.tabletBtn:hover {
+  transform: scale(1.02);
+}
+
+.tabletBtn svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--bg-dark);
+}
+
+.tabletBtn span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--bg-dark);
+}
+
+.tabletBtn small {
+  font-size: 0.5rem;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+.tabletHint {
+  font-size: 0.45rem;
+  color: var(--text-muted);
+  text-align: center;
+  padding-top: 6px;
+}
+
+/* TV Styles */
+.tvWrapper {
+  position: relative;
+}
+
+.connectionLine {
+  position: absolute;
+  top: 50%;
+  left: -50px;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.connectionDot {
+  width: 10px;
+  height: 10px;
+  background: var(--accent);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+.connectionBar {
+  width: 36px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+}
+
+.tv {
+  background: #1a1a1c;
+  border-radius: 12px;
+  padding: 8px;
+  border: 4px solid #2a2a2e;
+}
+
+.tvScreen {
+  background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+  border-radius: 6px;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  position: relative;
+}
+
+.tvStand {
+  width: 120px;
+  height: 8px;
+  background: #2a2a2e;
+  margin: 0 auto;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Slides */
+.slide {
+  position: absolute;
+  inset: 0;
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  transition: opacity 0.6s ease-in-out;
+  pointer-events: none;
+}
+
+.slideActive {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tournament {
+  background: linear-gradient(135deg, #1e3a5f 0%, #1a1a2e 100%);
+}
+
+.announcement {
+  background: linear-gradient(135deg, #1e3a5f 0%, #1a1a2e 100%);
+}
+
+.promo {
+  background: linear-gradient(135deg, #2d1f3d 0%, #1a1a2e 100%);
+}
+
+.checkins {
+  background: linear-gradient(135deg, #1a2f1a 0%, #1a1a2e 100%);
+}
+
+.custom {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+}
+
+.slideHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.tvBrand {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.1rem;
+  color: var(--accent);
+  padding: 4px 12px;
+  border: 1px dashed var(--accent);
+  border-radius: 4px;
+  opacity: 0.8;
+}
+
+.tvLive {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--teal);
+  background: rgba(0, 212, 170, 0.15);
+  padding: 5px 12px;
+  border-radius: 100px;
+}
+
+.liveDot {
+  width: 6px;
+  height: 6px;
+  background: var(--teal);
+  border-radius: 50%;
+  animation: pulse 1.5s infinite;
+}
+
+.slideMain {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.slideLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+
+.slideTitle {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+.slideDetails {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.slideFooter {
+  display: flex;
+  justify-content: center;
+  padding-top: 16px;
+}
+
+/* Check-in List */
+.checkinList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.checkinItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+.checkinAvatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+}
+
+.checkinInfo {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.checkinName {
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.checkinTime {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.checkinCount {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.countNumber {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--teal);
+}
+
+.countLabel {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+/* Custom Image Placeholder */
+.customPlaceholder {
+  text-align: center;
+  padding: 20px;
+}
+
+.customIcon {
+  width: 60px;
+  height: 60px;
+  margin: 0 auto 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 2px dashed rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.customIcon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--text-muted);
+}
+
+.customTitle {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.customDesc {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+/* Promo Badge */
+.promoBadge {
+  background: linear-gradient(135deg, var(--orange), #ea580c);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Slide Dots */
+.dots {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.dotActive {
+  background: var(--accent);
+  width: 24px;
+  border-radius: 4px;
+}
+
+.dot:hover {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.dotActive:hover {
+  background: var(--accent);
+}
+
+/* Device Labels */
+.deviceLabel {
+  text-align: center;
+  margin-top: 16px;
+}
+
+.labelTitle {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 4px;
+}
+
+.labelPrice {
+  font-size: 0.8rem;
+  color: var(--orange);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .tabletWrapper {
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .connectionLine {
+    display: none;
+  }
+}

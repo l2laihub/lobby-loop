@@ -1,0 +1,2270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LobbyLoop - Check-in Tablet + Wall Display for Small Businesses</title>
+    <meta name="description" content="Two-screen system: tablet for check-in, TV for promotions. Works on any Android tablet + existing TV. Under $150 hardware. $39/month.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-dark: #0a0a0b;
+            --bg-card: #141416;
+            --accent: #00d4aa;
+            --accent-glow: rgba(0, 212, 170, 0.15);
+            --accent-secondary: #6366f1;
+            --text-primary: #ffffff;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --border: rgba(255, 255, 255, 0.08);
+            --orange: #f97316;
+            --gold: #fbbf24;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse 80% 50% at 50% -20%, var(--accent-glow), transparent),
+                radial-gradient(ellipse 60% 40% at 80% 60%, rgba(99, 102, 241, 0.08), transparent),
+                var(--bg-dark);
+            z-index: -1;
+        }
+        
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+        
+        /* Header */
+        header {
+            padding: 24px 0;
+            position: relative;
+        }
+        
+        .logo {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.75rem;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: var(--accent);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+        
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            animation: fadeInUp 0.6s ease-out;
+        }
+        
+        .badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        h1 {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 400;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.6s ease-out 0.1s both;
+        }
+        
+        h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+        
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            animation: fadeInUp 0.6s ease-out 0.2s both;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .cta-form {
+            max-width: 520px;
+            margin: 0 auto 16px;
+            animation: fadeInUp 0.6s ease-out 0.3s both;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 12px;
+        }
+        
+        .cta-form input[type="email"] {
+            flex: 1;
+            padding: 16px 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-size: 1rem;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        
+        .cta-form input[type="email"]:focus {
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+        
+        .cta-form input[type="email"]::placeholder {
+            color: var(--text-muted);
+        }
+        
+        .cta-form button {
+            padding: 16px 28px;
+            background: var(--accent);
+            color: var(--bg-dark);
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            white-space: nowrap;
+        }
+        
+        .cta-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px var(--accent-glow);
+        }
+        
+        /* Plan Selector */
+        .plan-selector {
+            margin-top: 20px;
+        }
+        
+        .plan-selector-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+        
+        .plan-options {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        
+        @media (max-width: 500px) {
+            .plan-options {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .plan-option {
+            cursor: pointer;
+        }
+        
+        .plan-option input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+        }
+        
+        .plan-option-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            padding: 14px 12px;
+            background: var(--bg-card);
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            transition: all 0.2s;
+        }
+        
+        .plan-option input:checked + .plan-option-box {
+            border-color: var(--accent);
+            background: var(--accent-glow);
+        }
+        
+        .plan-option:hover .plan-option-box {
+            border-color: rgba(0, 212, 170, 0.5);
+        }
+        
+        .plan-option-badge {
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-muted);
+            background: rgba(255,255,255,0.05);
+            padding: 3px 8px;
+            border-radius: 100px;
+        }
+        
+        .plan-option input:checked + .plan-option-box .plan-option-badge {
+            background: var(--accent);
+            color: var(--bg-dark);
+        }
+        
+        .plan-option:first-child .plan-option-badge {
+            background: rgba(251, 191, 36, 0.2);
+            color: var(--gold);
+        }
+        
+        .plan-option:first-child input:checked + .plan-option-box .plan-option-badge {
+            background: var(--gold);
+            color: var(--bg-dark);
+        }
+        
+        .plan-option-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        
+        .plan-option-price {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+        
+        .plan-option input:checked + .plan-option-box .plan-option-price {
+            color: var(--accent);
+        }
+        
+        .plan-option:first-child input:checked + .plan-option-box {
+            border-color: var(--gold);
+            background: rgba(251, 191, 36, 0.1);
+        }
+        
+        .plan-option:first-child input:checked + .plan-option-box .plan-option-price {
+            color: var(--gold);
+        }
+        
+        .cta-note {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            animation: fadeInUp 0.6s ease-out 0.4s both;
+        }
+        
+        /* Hardware Callout */
+        .hardware-callout {
+            display: inline-flex;
+            align-items: center;
+            gap: 16px;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(0, 212, 170, 0.1));
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            padding: 12px 24px;
+            border-radius: 100px;
+            margin-top: 24px;
+            animation: fadeInUp 0.6s ease-out 0.5s both;
+        }
+        
+        .hardware-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--orange);
+        }
+        
+        .hardware-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-align: left;
+            line-height: 1.3;
+        }
+        
+        /* Two Screen Mockup */
+        .mockup-section {
+            padding: 60px 0 80px;
+            animation: fadeInUp 0.8s ease-out 0.5s both;
+        }
+        
+        .two-screen-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        @media (max-width: 900px) {
+            .two-screen-layout {
+                grid-template-columns: 1fr;
+                gap: 32px;
+            }
+        }
+        
+        /* Tablet Mockup */
+        .tablet-mockup {
+            background: #1a1a1c;
+            border-radius: 20px;
+            padding: 8px;
+            border: 3px solid #2a2a2e;
+            position: relative;
+        }
+        
+        .tablet-camera {
+            position: absolute;
+            top: 50%;
+            left: 5px;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 5px;
+            background: #3a3a3e;
+            border-radius: 50%;
+        }
+        
+        .tablet-screen {
+            background: var(--bg-dark);
+            border-radius: 12px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+        
+        /* Realistic tablet UI */
+        .tablet-content-v2 {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background: linear-gradient(180deg, #1a2332 0%, #141c28 100%);
+            padding: 8px 10px;
+            overflow: hidden;
+        }
+        
+        .tablet-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-shrink: 0;
+        }
+        
+        .tablet-logo-corner {
+            width: 20px;
+            height: 20px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tablet-logo-icon {
+            font-size: 10px;
+            opacity: 0.7;
+        }
+        
+        .tablet-time {
+            text-align: right;
+        }
+        
+        .tablet-time-display {
+            display: block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+        
+        .tablet-date {
+            font-size: 0.45rem;
+            color: var(--text-muted);
+        }
+        
+        .tablet-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 6px 8px;
+            min-height: 0;
+        }
+        
+        .tablet-title {
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 0;
+            line-height: 1.2;
+        }
+        
+        .tablet-subtitle {
+            font-size: 0.5rem;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        
+        .tablet-primary-btn {
+            width: 100%;
+            background: var(--accent);
+            border: none;
+            border-radius: 8px;
+            padding: 10px 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2px;
+            cursor: pointer;
+        }
+        
+        .tablet-btn-icon {
+            width: 20px;
+            height: 20px;
+            stroke: var(--bg-dark);
+        }
+        
+        .tablet-btn-text {
+            font-size: 0.7rem;
+            font-weight: 600;
+            color: var(--bg-dark);
+            line-height: 1.2;
+        }
+        
+        .tablet-btn-hint {
+            font-size: 0.45rem;
+            color: rgba(0, 0, 0, 0.6);
+        }
+        
+        .tablet-footer-hint {
+            font-size: 0.4rem;
+            color: var(--text-muted);
+            text-align: center;
+            padding-top: 4px;
+            flex-shrink: 0;
+        }
+        
+        .tv-brand-placeholder {
+            display: inline-block;
+            font-family: 'Instrument Serif', serif;
+            font-size: 1rem;
+            color: var(--accent);
+            padding: 4px 12px;
+            border: 1px dashed var(--accent);
+            border-radius: 4px;
+            opacity: 0.8;
+        }
+        
+        /* TV Slideshow */
+        .tv-screen {
+            background: linear-gradient(135deg, #1e3a5f 0%, #0f172a 100%);
+            border-radius: 6px;
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            position: relative;
+        }
+        
+        .tv-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            opacity: 0;
+            transition: opacity 0.6s ease-in-out;
+            pointer-events: none;
+        }
+        
+        .tv-slide.tv-slide-active {
+            opacity: 1;
+            pointer-events: auto;
+        }
+        
+        .tv-content {
+            padding: 32px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Slide-specific backgrounds */
+        .tv-content-announcement {
+            background: linear-gradient(135deg, #1e3a5f 0%, #1a1a2e 100%);
+        }
+        
+        .tv-content-promo {
+            background: linear-gradient(135deg, #2d1f3d 0%, #1a1a2e 100%);
+        }
+        
+        .tv-content-checkins {
+            background: linear-gradient(135deg, #1a2f1a 0%, #1a1a2e 100%);
+        }
+        
+        /* Check-in list styles */
+        .tv-main-checkins {
+            justify-content: flex-start;
+            text-align: left;
+        }
+        
+        .tv-checkin-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 16px;
+        }
+        
+        .tv-checkin-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255,255,255,0.05);
+            padding: 10px 14px;
+            border-radius: 10px;
+        }
+        
+        .tv-checkin-avatar {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            flex-shrink: 0;
+        }
+        
+        .tv-checkin-info {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .tv-checkin-name {
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+        
+        .tv-checkin-time {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        
+        /* Custom image slide */
+        .tv-content-custom {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tv-custom-placeholder {
+            text-align: center;
+            padding: 24px;
+        }
+        
+        .tv-custom-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 16px;
+            background: rgba(255,255,255,0.05);
+            border: 2px dashed rgba(255,255,255,0.2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .tv-custom-icon svg {
+            width: 32px;
+            height: 32px;
+            stroke: var(--text-muted);
+        }
+        
+        .tv-custom-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+            color: var(--text-primary);
+        }
+        
+        .tv-custom-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        /* Schedule note */
+        .tv-schedule-note {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-secondary);
+        }
+        
+        .tv-schedule-icon {
+            font-size: 1.25rem;
+        }
+        
+        .tv-schedule-text {
+            font-size: 0.9rem;
+        }
+        
+        /* Promo CTA */
+        .tv-promo-cta {
+            display: flex;
+            align-items: center;
+        }
+        
+        .tv-promo-badge {
+            background: linear-gradient(135deg, var(--orange), #ea580c);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        /* Slide dots interactive */
+        .slide-dots {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 12px;
+        }
+        
+        .slide-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .slide-dot.active {
+            background: var(--accent);
+            width: 24px;
+            border-radius: 4px;
+        }
+        
+        .slide-dot:hover {
+            background: rgba(255,255,255,0.4);
+        }
+        
+        .slide-dot.active:hover {
+            background: var(--accent);
+        }
+        
+        .tablet-label {
+            text-align: center;
+            margin-top: 16px;
+        }
+        
+        .tablet-label-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+        
+        .tablet-label-price {
+            font-size: 0.8rem;
+            color: var(--orange);
+        }
+        
+        /* TV Mockup */
+        .tv-section {
+            position: relative;
+        }
+        
+        .tv-mockup {
+            background: #1a1a1c;
+            border-radius: 12px;
+            padding: 8px;
+            border: 4px solid #2a2a2e;
+        }
+        
+        .tv-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 24px;
+        }
+        
+        .tv-brand {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.25rem;
+            color: var(--accent);
+        }
+        
+        .tv-live {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.75rem;
+            color: var(--accent);
+            background: rgba(0, 212, 170, 0.15);
+            padding: 4px 10px;
+            border-radius: 100px;
+        }
+        
+        .tv-live-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 1.5s infinite;
+        }
+        
+        .tv-main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+        
+        .tv-event-label {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--orange);
+            margin-bottom: 8px;
+        }
+        
+        .tv-event-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.5rem, 3vw, 2.25rem);
+            line-height: 1.2;
+            margin-bottom: 12px;
+        }
+        
+        .tv-event-details {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+        
+        .tv-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .tv-checkin-count {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .tv-count-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .tv-count-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+        
+        .tv-avatars {
+            display: flex;
+        }
+        
+        .tv-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            border: 2px solid var(--bg-dark);
+            margin-left: -8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 600;
+        }
+        
+        .tv-avatar:first-child { margin-left: 0; background: linear-gradient(135deg, #f97316, #ea580c); }
+        .tv-avatar:nth-child(2) { background: linear-gradient(135deg, #6366f1, #4f46e5); }
+        .tv-avatar:nth-child(3) { background: linear-gradient(135deg, #00d4aa, #059669); }
+        .tv-avatar:nth-child(4) { background: linear-gradient(135deg, #ec4899, #db2777); }
+        
+        .tv-stand {
+            width: 120px;
+            height: 8px;
+            background: #2a2a2e;
+            margin: 0 auto;
+            border-radius: 0 0 8px 8px;
+        }
+        
+        .tv-label {
+            text-align: center;
+            margin-top: 16px;
+        }
+        
+        .tv-label-title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+        
+        .tv-label-price {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+        
+        /* Connection line */
+        .connection-visual {
+            position: absolute;
+            top: 50%;
+            left: -40px;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        
+        @media (max-width: 900px) {
+            .connection-visual {
+                display: none;
+            }
+        }
+        
+        .connection-line {
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+        }
+        
+        .connection-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .section-label {
+            font-size: 0.875rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-family: 'Instrument Serif', serif;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 400;
+            text-align: center;
+            margin-bottom: 60px;
+            letter-spacing: -0.02em;
+        }
+        
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+        
+        @media (max-width: 700px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .step-card {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-glow);
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.25rem;
+            color: var(--accent);
+            flex-shrink: 0;
+        }
+        
+        .step-content h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .step-content p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* Features */
+        .features {
+            padding: 80px 0;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+        
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 32px;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--accent);
+        }
+        
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent-glow);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+        
+        .feature-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--accent);
+        }
+        
+        .feature-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+        
+        .feature-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        /* Hardware Section */
+        .hardware-section {
+            padding: 80px 0;
+            background: var(--bg-card);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .hardware-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 700px) {
+            .hardware-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .hardware-item {
+            text-align: center;
+            padding: 32px 24px;
+            background: var(--bg-dark);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+        
+        .hardware-emoji {
+            font-size: 3rem;
+            margin-bottom: 16px;
+        }
+        
+        .hardware-item-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .hardware-item-desc {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 12px;
+        }
+        
+        .hardware-item-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--orange);
+        }
+        
+        .hardware-total {
+            text-align: center;
+            padding: 24px;
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(0, 212, 170, 0.1));
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            border-radius: 16px;
+        }
+        
+        .hardware-total-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+        
+        .hardware-total-price {
+            font-family: 'Instrument Serif', serif;
+            font-size: 2.5rem;
+            color: var(--orange);
+        }
+        
+        .hardware-total-note {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 8px;
+        }
+        
+        /* Social Proof */
+        .social-proof {
+            padding: 60px 0;
+        }
+        
+        .proof-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .proof-quote {
+            font-family: 'Instrument Serif', serif;
+            font-size: 1.5rem;
+            font-style: italic;
+            line-height: 1.5;
+            margin-bottom: 24px;
+        }
+        
+        .proof-metrics {
+            display: flex;
+            gap: 32px;
+            margin-bottom: 24px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .proof-metric {
+            text-align: center;
+        }
+        
+        .proof-metric-number {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .proof-metric-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .proof-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .proof-avatar {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), #6366f1);
+        }
+        
+        .proof-info {
+            text-align: left;
+        }
+        
+        .proof-name {
+            font-weight: 600;
+        }
+        
+        .proof-role {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+        }
+        
+        /* Use Cases */
+        .use-cases {
+            padding: 60px 0;
+        }
+        
+        .use-cases-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        .use-case-tag {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 12px 20px;
+            border-radius: 100px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            transition: border-color 0.2s, color 0.2s;
+        }
+        
+        .use-case-tag:hover {
+            border-color: var(--accent);
+            color: var(--text-primary);
+        }
+        
+        /* Pricing */
+        .pricing {
+            padding: 80px 0;
+        }
+        
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        
+        @media (max-width: 900px) {
+            .pricing-grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+            }
+        }
+        
+        .pricing-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 32px;
+            text-align: center;
+            position: relative;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-4px);
+        }
+        
+        .pricing-card.featured {
+            border: 2px solid var(--gold);
+            background: linear-gradient(180deg, rgba(251, 191, 36, 0.08) 0%, var(--bg-card) 100%);
+        }
+        
+        .pricing-card.featured:hover {
+            border-color: var(--gold);
+        }
+        
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--bg-dark);
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            padding: 6px 14px;
+            border-radius: 100px;
+            white-space: nowrap;
+        }
+        
+        .pricing-badge.teal {
+            background: var(--accent);
+        }
+        
+        .pricing-tier {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+        
+        .pricing-card.featured .pricing-tier {
+            color: var(--gold);
+        }
+        
+        .pricing-amount {
+            margin-bottom: 8px;
+        }
+        
+        .pricing-currency {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            vertical-align: top;
+        }
+        
+        .pricing-number {
+            font-family: 'Instrument Serif', serif;
+            font-size: 3rem;
+            font-weight: 400;
+            line-height: 1;
+        }
+        
+        .pricing-card.featured .pricing-number {
+            color: var(--gold);
+        }
+        
+        .pricing-period {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .pricing-equivalent {
+            font-size: 0.875rem;
+            color: var(--accent);
+            margin-bottom: 16px;
+            min-height: 21px;
+        }
+        
+        .pricing-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 24px;
+            min-height: 44px;
+        }
+        
+        .pricing-spots {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(251, 191, 36, 0.15);
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+        
+        .pricing-spots.teal {
+            background: var(--accent-glow);
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+        
+        .pricing-spots-dot {
+            width: 6px;
+            height: 6px;
+            background: currentColor;
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        .pricing-features {
+            text-align: left;
+            margin-bottom: 24px;
+        }
+        
+        .pricing-feature {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+        
+        .pricing-check {
+            width: 18px;
+            height: 18px;
+            background: var(--accent-glow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .pricing-check svg {
+            width: 10px;
+            height: 10px;
+            stroke: var(--accent);
+        }
+        
+        .pricing-btn {
+            width: 100%;
+            padding: 14px;
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .pricing-btn:hover {
+            border-color: var(--accent);
+            background: var(--accent-glow);
+        }
+        
+        .pricing-card.featured .pricing-btn {
+            background: var(--gold);
+            color: var(--bg-dark);
+            border-color: var(--gold);
+        }
+        
+        .pricing-card.featured .pricing-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(251, 191, 36, 0.25);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+        
+        .footer-text {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        
+        .footer-link {
+            color: var(--accent);
+            text-decoration: none;
+        }
+        
+        /* Success State */
+        .success-message {
+            display: none;
+            background: var(--accent-glow);
+            border: 1px solid var(--accent);
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 16px;
+            text-align: center;
+        }
+        
+        .success-message.show {
+            display: block;
+            animation: fadeInUp 0.4s ease-out;
+        }
+        
+        .success-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+        }
+        
+        .success-icon svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--bg-dark);
+        }
+        
+        .success-title {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        
+        .success-desc {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Guarantee */
+        .guarantee {
+            text-align: center;
+            margin-top: 40px;
+            padding: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .guarantee-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .guarantee-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    
+    <header>
+        <div class="container">
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                        <path d="M12 2v4m0 12v4M2 12h4m12 0h4"/>
+                        <circle cx="12" cy="12" r="3"/>
+                    </svg>
+                </div>
+                LobbyLoop
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="badge">
+                    <span class="badge-dot"></span>
+                    Early access now open — limited spots
+                </div>
+                
+                <h1>Tablet for Check-in.<br><em>Wall TV</em> for Promotions.</h1>
+                
+                <p class="hero-subtitle">
+                    Two-screen system for gyms, studios, and small businesses. 
+                    Members check in on a tablet. Your TV shows announcements, tournaments, and promos.
+                </p>
+                
+                <form class="cta-form" id="waitlist-form">
+                    <div class="form-row">
+                        <input type="email" placeholder="Enter your email" required id="email-input">
+                        <button type="submit">Get Early Access</button>
+                    </div>
+                    
+                    <div class="plan-selector">
+                        <p class="plan-selector-label">I'm interested in:</p>
+                        <div class="plan-options">
+                            <label class="plan-option">
+                                <input type="radio" name="plan" value="lifetime" checked>
+                                <span class="plan-option-box">
+                                    <span class="plan-option-badge">🔥 47 left</span>
+                                    <span class="plan-option-name">Lifetime</span>
+                                    <span class="plan-option-price">$299 once</span>
+                                </span>
+                            </label>
+                            <label class="plan-option">
+                                <input type="radio" name="plan" value="yearly">
+                                <span class="plan-option-box">
+                                    <span class="plan-option-badge">Save 36%</span>
+                                    <span class="plan-option-name">Yearly</span>
+                                    <span class="plan-option-price">$299/yr</span>
+                                </span>
+                            </label>
+                            <label class="plan-option">
+                                <input type="radio" name="plan" value="monthly">
+                                <span class="plan-option-box">
+                                    <span class="plan-option-badge">Flexible</span>
+                                    <span class="plan-option-name">Monthly</span>
+                                    <span class="plan-option-price">$39/mo</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+                
+                <p class="cta-note">Join the waitlist · We'll notify you when checkout is ready</p>
+                
+                <div class="hardware-callout">
+                    <span class="hardware-price">~$110</span>
+                    <span class="hardware-label">total hardware cost<br>using budget Android devices</span>
+                </div>
+                
+                <div class="success-message" id="success-message">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M20 6L9 17l-5-5"/>
+                        </svg>
+                    </div>
+                    <p class="success-title">You're on the list!</p>
+                    <p class="success-desc">We'll email you when it's your turn to get access.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="mockup-section">
+            <div class="container">
+                <div class="two-screen-layout">
+                    <!-- Tablet -->
+                    <div>
+                        <div class="tablet-mockup">
+                            <div class="tablet-camera"></div>
+                            <div class="tablet-screen">
+                                <div class="tablet-content-v2">
+                                    <div class="tablet-header">
+                                        <div class="tablet-logo-corner">
+                                            <div class="tablet-logo-icon">⬡</div>
+                                        </div>
+                                        <div class="tablet-time">
+                                            <span class="tablet-time-display">7:17 AM</span>
+                                            <span class="tablet-date">Tuesday, February 3</span>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tablet-main">
+                                        <h3 class="tablet-title">Check In</h3>
+                                        <p class="tablet-subtitle">Welcome to Your Studio</p>
+                                        
+                                        <button class="tablet-primary-btn">
+                                            <svg class="tablet-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                                <circle cx="12" cy="7" r="4"/>
+                                                <path d="M5.5 21a7.5 7.5 0 0 1 13 0"/>
+                                            </svg>
+                                            <span class="tablet-btn-text">Find My Name</span>
+                                            <span class="tablet-btn-hint">Tap to check in</span>
+                                        </button>
+                                    </div>
+                                    
+                                    <div class="tablet-footer-hint">
+                                        Tap your name to check in
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tablet-label">
+                            <p class="tablet-label-title">Check-in Tablet</p>
+                            <p class="tablet-label-price">11" Android tablet · ~$78</p>
+                        </div>
+                    </div>
+                    
+                    <!-- TV with Animated Slideshow -->
+                    <div class="tv-section">
+                        <div class="connection-visual">
+                            <div class="connection-dot"></div>
+                            <div class="connection-line"></div>
+                        </div>
+                        <div class="tv-mockup">
+                            <div class="tv-screen">
+                                <!-- Slide 1: Tournament -->
+                                <div class="tv-slide tv-slide-active" data-slide="0">
+                                    <div class="tv-content">
+                                        <div class="tv-header">
+                                            <span class="tv-brand-placeholder">Your Logo</span>
+                                            <span class="tv-live">
+                                                <span class="tv-live-dot"></span>
+                                                47 checked in
+                                            </span>
+                                        </div>
+                                        <div class="tv-main">
+                                            <p class="tv-event-label">🏆 Upcoming Tournament</p>
+                                            <h2 class="tv-event-title">Seattle Open<br>Championship</h2>
+                                            <p class="tv-event-details">March 15, 2026 · Early bird ends Feb 20</p>
+                                        </div>
+                                        <div class="tv-footer">
+                                            <div class="tv-checkin-count">
+                                                <span class="tv-count-number">12</span>
+                                                <span class="tv-count-label">registered<br>from your gym</span>
+                                            </div>
+                                            <div class="tv-avatars">
+                                                <div class="tv-avatar">MK</div>
+                                                <div class="tv-avatar">JT</div>
+                                                <div class="tv-avatar">SL</div>
+                                                <div class="tv-avatar">+9</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slide 2: Announcement -->
+                                <div class="tv-slide" data-slide="1">
+                                    <div class="tv-content tv-content-announcement">
+                                        <div class="tv-header">
+                                            <span class="tv-brand-placeholder">Your Logo</span>
+                                            <span class="tv-live">
+                                                <span class="tv-live-dot"></span>
+                                                47 checked in
+                                            </span>
+                                        </div>
+                                        <div class="tv-main">
+                                            <p class="tv-event-label">📢 Announcement</p>
+                                            <h2 class="tv-event-title">No Classes<br>This Saturday</h2>
+                                            <p class="tv-event-details">Private event · Regular schedule resumes Monday</p>
+                                        </div>
+                                        <div class="tv-footer">
+                                            <div class="tv-schedule-note">
+                                                <span class="tv-schedule-icon">📅</span>
+                                                <span class="tv-schedule-text">Next class: Monday 6:00 AM</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slide 3: Promo -->
+                                <div class="tv-slide" data-slide="2">
+                                    <div class="tv-content tv-content-promo">
+                                        <div class="tv-header">
+                                            <span class="tv-brand-placeholder">Your Logo</span>
+                                            <span class="tv-live">
+                                                <span class="tv-live-dot"></span>
+                                                47 checked in
+                                            </span>
+                                        </div>
+                                        <div class="tv-main">
+                                            <p class="tv-event-label">🎁 Member Special</p>
+                                            <h2 class="tv-event-title">Refer a Friend<br>Get 1 Month Free</h2>
+                                            <p class="tv-event-details">Ask at the front desk for details</p>
+                                        </div>
+                                        <div class="tv-footer">
+                                            <div class="tv-promo-cta">
+                                                <span class="tv-promo-badge">Limited Time</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slide 4: Live Check-ins -->
+                                <div class="tv-slide" data-slide="3">
+                                    <div class="tv-content tv-content-checkins">
+                                        <div class="tv-header">
+                                            <span class="tv-brand-placeholder">Your Logo</span>
+                                            <span class="tv-live">
+                                                <span class="tv-live-dot"></span>
+                                                Live
+                                            </span>
+                                        </div>
+                                        <div class="tv-main tv-main-checkins">
+                                            <p class="tv-event-label">👋 Recently Checked In</p>
+                                            <div class="tv-checkin-list">
+                                                <div class="tv-checkin-item">
+                                                    <div class="tv-checkin-avatar" style="background: linear-gradient(135deg, #f97316, #ea580c);">MK</div>
+                                                    <div class="tv-checkin-info">
+                                                        <span class="tv-checkin-name">Marcus K.</span>
+                                                        <span class="tv-checkin-time">just now</span>
+                                                    </div>
+                                                </div>
+                                                <div class="tv-checkin-item">
+                                                    <div class="tv-checkin-avatar" style="background: linear-gradient(135deg, #6366f1, #4f46e5);">JT</div>
+                                                    <div class="tv-checkin-info">
+                                                        <span class="tv-checkin-name">Jessica T.</span>
+                                                        <span class="tv-checkin-time">2 min ago</span>
+                                                    </div>
+                                                </div>
+                                                <div class="tv-checkin-item">
+                                                    <div class="tv-checkin-avatar" style="background: linear-gradient(135deg, #00d4aa, #059669);">SL</div>
+                                                    <div class="tv-checkin-info">
+                                                        <span class="tv-checkin-name">Sarah L.</span>
+                                                        <span class="tv-checkin-time">5 min ago</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tv-footer">
+                                            <div class="tv-checkin-count">
+                                                <span class="tv-count-number">47</span>
+                                                <span class="tv-count-label">checked in<br>today</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Slide 5: Custom Image -->
+                                <div class="tv-slide" data-slide="4">
+                                    <div class="tv-content tv-content-custom">
+                                        <div class="tv-custom-placeholder">
+                                            <div class="tv-custom-icon">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                                                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                                                    <path d="M21 15l-5-5L5 21"/>
+                                                </svg>
+                                            </div>
+                                            <p class="tv-custom-title">Your Custom Image</p>
+                                            <p class="tv-custom-desc">Upload any image — flyers, schedules, sponsors, photos</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide-dots">
+                                <span class="slide-dot active" data-slide="0"></span>
+                                <span class="slide-dot" data-slide="1"></span>
+                                <span class="slide-dot" data-slide="2"></span>
+                                <span class="slide-dot" data-slide="3"></span>
+                                <span class="slide-dot" data-slide="4"></span>
+                            </div>
+                        </div>
+                        <div class="tv-stand"></div>
+                        <div class="tv-label">
+                            <p class="tv-label-title">Wall Display</p>
+                            <p class="tv-label-price">Any TV + Android box · ~$32 (or use spare TV)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="how-it-works">
+            <div class="container">
+                <p class="section-label">How It Works</p>
+                <h2 class="section-title">Set up in under 30 minutes</h2>
+                
+                <div class="steps-grid">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>Import your members</h3>
+                            <p>Upload a CSV or add manually. Name + phone is all you need.</p>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>Create your slides</h3>
+                            <p>Add announcements, tournament info, promos, or custom images.</p>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>Open on your devices</h3>
+                            <p>Tablet runs check-in mode. TV runs slideshow mode. Both sync live.</p>
+                        </div>
+                    </div>
+                    <div class="step-card">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>Watch it work</h3>
+                            <p>Members tap to check in. TV updates with live attendance. You see it all in your dashboard.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="features">
+            <div class="container">
+                <p class="section-label">Features</p>
+                <h2 class="section-title">Everything you need. Nothing you don't.</h2>
+                
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+                                <rect x="5" y="2" width="14" height="20" rx="2"/>
+                                <line x1="12" y1="18" x2="12" y2="18"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Tablet Check-in</h3>
+                        <p class="feature-desc">Members search by name or phone. One tap and they're in. Works on any Android tablet or iPad.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+                                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                                <path d="M8 21h8m-4-4v4"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Wall Display Slideshow</h3>
+                        <p class="feature-desc">Upload your own images, announcements, and promos. Rotates automatically. Show tournaments, schedules, or anything you want.</p>
+                    </div>
+                    
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round">
+                                <path d="M3 3v18h18"/>
+                                <path d="M18 17V9m-5 8v-4m-5 4v-6"/>
+                            </svg>
+                        </div>
+                        <h3 class="feature-title">Live Dashboard</h3>
+                        <p class="feature-desc">See who's checked in right now. Track attendance trends. Know your peak hours at a glance.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="hardware-section">
+            <div class="container">
+                <p class="section-label">Budget-Friendly Setup</p>
+                <h2 class="section-title">No expensive hardware required</h2>
+                
+                <div class="hardware-grid">
+                    <div class="hardware-item">
+                        <div class="hardware-emoji">📱</div>
+                        <p class="hardware-item-title">Android Tablet</p>
+                        <p class="hardware-item-desc">11" tablet from Amazon</p>
+                        <p class="hardware-item-price">~$78</p>
+                    </div>
+                    <div class="hardware-item">
+                        <div class="hardware-emoji">📺</div>
+                        <p class="hardware-item-title">Any TV or Monitor</p>
+                        <p class="hardware-item-desc">Use a spare TV you already have</p>
+                        <p class="hardware-item-price">$0</p>
+                    </div>
+                    <div class="hardware-item">
+                        <div class="hardware-emoji">📦</div>
+                        <p class="hardware-item-title">Android TV Box</p>
+                        <p class="hardware-item-desc">Small streaming box from Amazon</p>
+                        <p class="hardware-item-price">~$32</p>
+                    </div>
+                </div>
+                
+                <div class="hardware-total">
+                    <p class="hardware-total-label">Total hardware investment</p>
+                    <p class="hardware-total-price">~$110</p>
+                    <p class="hardware-total-note">vs. $500+ for iPad-based setups</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="social-proof">
+            <div class="container">
+                <div class="proof-card">
+                    <p class="proof-quote">"We replaced our old sign-in sheet and the unused TV in our lobby. Now members see upcoming tournaments as they walk in, and I finally know exactly who's showing up to each class."</p>
+                    
+                    <div class="proof-metrics">
+                        <div class="proof-metric">
+                            <p class="proof-metric-number">87+</p>
+                            <p class="proof-metric-label">Members</p>
+                        </div>
+                        <div class="proof-metric">
+                            <p class="proof-metric-number">3</p>
+                            <p class="proof-metric-label">Months Live</p>
+                        </div>
+                        <div class="proof-metric">
+                            <p class="proof-metric-number">$110</p>
+                            <p class="proof-metric-label">Hardware Cost</p>
+                        </div>
+                    </div>
+                    
+                    <div class="proof-author">
+                        <div class="proof-avatar"></div>
+                        <div class="proof-info">
+                            <p class="proof-name">HEVA BJJ</p>
+                            <p class="proof-role">Seattle, WA</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="use-cases">
+            <div class="container">
+                <p class="section-label">Perfect For</p>
+                <h2 class="section-title">Any business with a lobby and a TV</h2>
+                
+                <div class="use-cases-list">
+                    <span class="use-case-tag">🥋 Martial Arts Gyms</span>
+                    <span class="use-case-tag">🧘 Yoga Studios</span>
+                    <span class="use-case-tag">💪 CrossFit Boxes</span>
+                    <span class="use-case-tag">💇 Hair Salons</span>
+                    <span class="use-case-tag">💅 Nail Studios</span>
+                    <span class="use-case-tag">📚 Tutoring Centers</span>
+                    <span class="use-case-tag">🎨 Art Classes</span>
+                    <span class="use-case-tag">🎹 Music Schools</span>
+                    <span class="use-case-tag">🏊 Swim Schools</span>
+                    <span class="use-case-tag">🐕 Dog Daycares</span>
+                    <span class="use-case-tag">🧖 Spas & Wellness</span>
+                    <span class="use-case-tag">🏢 Coworking Spaces</span>
+                </div>
+            </div>
+        </section>
+        
+        <section class="pricing">
+            <div class="container">
+                <div class="pricing-header">
+                    <p class="section-label">Early Access Pricing</p>
+                    <h2 class="section-title">Lock in founding member rates</h2>
+                </div>
+                
+                <div class="pricing-grid">
+                    <!-- Lifetime -->
+                    <div class="pricing-card featured">
+                        <span class="pricing-badge">Best Value</span>
+                        <p class="pricing-tier">Founding 50</p>
+                        <div class="pricing-amount">
+                            <span class="pricing-currency">$</span>
+                            <span class="pricing-number">299</span>
+                        </div>
+                        <p class="pricing-period">one-time payment</p>
+                        <p class="pricing-equivalent">Never pay again</p>
+                        
+                        <div class="pricing-spots">
+                            <span class="pricing-spots-dot"></span>
+                            <span id="lifetime-spots">47 of 50 remaining</span>
+                        </div>
+                        
+                        <div class="pricing-features">
+                            <div class="pricing-feature">
+                                <span class="pricing-check">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                </span>
+                                <span>Lifetime access forever</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <span class="pricing-check">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                </span>
+                                <span>All future updates included</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <span class="pricing-check">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                </span>
+                                <span>Priority support</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <span class="pricing-check">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                </span>
+                                <span>Founding member badge</span>
+                            </div>
+                        </div>
+                        
+                        <button class="pricing-btn" onclick="selectPlan('lifetime')">Get Lifetime Access</button>
+                    </div>
+                    
+                    <!-- Yearly -->
+                    <div class="pricing-card">
+                        <span class="pricing-badge teal">Save 36%</span>
+                        <p class="pricing-tier">Early Bird Yearly</p>
+                        <div class="pricing-amount">
+                            <span class="pricing-currency">$</span>
+                            <span class="pricing-number">299</span>
+                        </div>
+                        <p class="pricing-period">per year</p>
+                        <p class="pricing-equivalent">Just $25/month</p>
+                        
+                        <div class="pricing-spots teal">
+                            <span class="pricing-spots-dot"></span>
+                            <span id="yearly-spots">First 100 only</span>
+                        </div>
+                        
+                        <div class="pricing-features">
+                            <div class="pricing-feature">
+                                <span class="pricing-check">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                </span>
+                                <span>Unlimited check-ins</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <span class="pricing-check">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                </span>
+                                <span>Upload custom images & slides</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <span class="pricing-check">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                </span>
+                                <span>Live attendance dashboard</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <span class="pricing-check">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                </span>
+                                <span>Custom branding</span>
+                            </div>
+                        </div>
+                        
+                        <button class="pricing-btn" onclick="selectPlan('yearly')">Go Yearly</button>
+                    </div>
+                    
+                    <!-- Monthly -->
+                    <div class="pricing-card">
+                        <p class="pricing-tier">Monthly</p>
+                        <div class="pricing-amount">
+                            <span class="pricing-currency">$</span>
+                            <span class="pricing-number">39</span>
+                        </div>
+                        <p class="pricing-period">per month</p>
+                        <p class="pricing-equivalent">&nbsp;</p>
+                        
+                        <div class="pricing-spots teal" style="opacity: 0; pointer-events: none;">
+                            <span>Placeholder</span>
+                        </div>
+                        
+                        <div class="pricing-features">
+                            <div class="pricing-feature">
+                                <span class="pricing-check">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                </span>
+                                <span>Unlimited check-ins</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <span class="pricing-check">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                </span>
+                                <span>Upload custom images & slides</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <span class="pricing-check">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                </span>
+                                <span>Live attendance dashboard</span>
+                            </div>
+                            <div class="pricing-feature">
+                                <span class="pricing-check">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke-width="3" stroke-linecap="round">
+                                        <path d="M20 6L9 17l-5-5"/>
+                                    </svg>
+                                </span>
+                                <span>Cancel anytime</span>
+                            </div>
+                        </div>
+                        
+                        <button class="pricing-btn" onclick="selectPlan('monthly')">Start Monthly</button>
+                    </div>
+                </div>
+                
+                <div class="guarantee">
+                    <p class="guarantee-title">🛡️ 30-Day Money-Back Guarantee</p>
+                    <p class="guarantee-desc">Try LobbyLoop risk-free. If it's not right for your business, get a full refund within 30 days. No questions asked.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p class="footer-text">
+                A <a href="https://huybuilds.com" class="footer-link">huybuilds</a> project · Built in Seattle 🌲
+            </p>
+        </div>
+    </footer>
+    
+    <script>
+        // Form handling
+        document.getElementById('waitlist-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email-input').value;
+            const plan = document.querySelector('input[name="plan"]:checked').value;
+            const form = this;
+            const successMessage = document.getElementById('success-message');
+            
+            form.style.display = 'none';
+            document.querySelector('.cta-note').style.display = 'none';
+            document.querySelector('.hardware-callout').style.display = 'none';
+            successMessage.classList.add('show');
+            
+            // Update success message based on plan
+            const planNames = {
+                'lifetime': 'Founding Lifetime ($299)',
+                'yearly': 'Early Bird Yearly ($299/yr)',
+                'monthly': 'Monthly ($39/mo)'
+            };
+            document.querySelector('.success-desc').innerHTML = 
+                `You selected <strong>${planNames[plan]}</strong>. We'll email you when checkout is ready.`;
+            
+            // TODO: Send to your backend (email + plan)
+            console.log('Waitlist signup:', { email, plan });
+            
+            // Example: Send to a serverless function or form service
+            // fetch('/api/waitlist', {
+            //     method: 'POST',
+            //     headers: { 'Content-Type': 'application/json' },
+            //     body: JSON.stringify({ email, plan, timestamp: new Date().toISOString() })
+            // });
+        });
+        
+        // Plan selection from pricing cards
+        function selectPlan(plan) {
+            // Pre-select the radio button
+            const radioBtn = document.querySelector(`input[name="plan"][value="${plan}"]`);
+            if (radioBtn) {
+                radioBtn.checked = true;
+            }
+            
+            // Scroll to form and focus email
+            document.getElementById('email-input').focus();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        // TV Slideshow Animation
+        (function() {
+            const slides = document.querySelectorAll('.tv-slide');
+            const dots = document.querySelectorAll('.slide-dot');
+            let currentSlide = 0;
+            const slideCount = slides.length;
+            const autoPlayInterval = 4000; // 4 seconds per slide
+            let autoPlayTimer;
+            
+            function showSlide(index) {
+                // Remove active from all slides and dots
+                slides.forEach(slide => slide.classList.remove('tv-slide-active'));
+                dots.forEach(dot => dot.classList.remove('active'));
+                
+                // Add active to current slide and dot
+                slides[index].classList.add('tv-slide-active');
+                dots[index].classList.add('active');
+                
+                currentSlide = index;
+            }
+            
+            function nextSlide() {
+                const next = (currentSlide + 1) % slideCount;
+                showSlide(next);
+            }
+            
+            function startAutoPlay() {
+                autoPlayTimer = setInterval(nextSlide, autoPlayInterval);
+            }
+            
+            function resetAutoPlay() {
+                clearInterval(autoPlayTimer);
+                startAutoPlay();
+            }
+            
+            // Click on dots to navigate
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showSlide(index);
+                    resetAutoPlay();
+                });
+            });
+            
+            // Start auto-play
+            startAutoPlay();
+        })();
+        
+        // Add shake animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                25% { transform: translateX(-5px); }
+                75% { transform: translateX(5px); }
+            }
+            .shake {
+                animation: shake 0.3s ease-in-out;
+                border-color: #ef4444 !important;
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
