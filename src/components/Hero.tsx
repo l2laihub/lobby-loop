@@ -71,13 +71,11 @@ export default function Hero() {
       <header className={styles.header}>
         <div className="container">
           <div className={styles.logo}>
-            <div className={styles.logoIcon}>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
-                <path d="M12 2v4m0 12v4M2 12h4m12 0h4" />
-                <circle cx="12" cy="12" r="3" />
-              </svg>
-            </div>
-            <span className="font-serif">LobbyLoop</span>
+            <img src="/LobbyLoop.png" alt="LobbyLoop icon" className={styles.logoImage} />
+            <span className={styles.logoText}>
+              <span className={styles.logoLobby}>Lobby</span>
+              <span className={styles.logoLoop}>Loop</span>
+            </span>
           </div>
         </div>
       </header>

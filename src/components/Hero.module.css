@@ -5,29 +5,28 @@
 }
 
 .logo {
-  font-family: 'Instrument Serif', serif;
-  font-size: 1.75rem;
-  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.logoImage {
+  height: 96px;
+  width: auto;
+}
+
+.logoText {
+  font-size: 3rem;
+  font-weight: 600;
   letter-spacing: -0.02em;
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
-.logoIcon {
-  width: 36px;
-  height: 36px;
-  background: var(--accent);
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--bg-dark);
+.logoLobby {
+  color: var(--teal);
 }
 
-.logoIcon svg {
-  width: 20px;
-  height: 20px;
+.logoLoop {
+  color: var(--accent);
 }
 
 /* Hero Section */
@@ -316,6 +315,18 @@
 
 /* Responsive */
 @media (max-width: 600px) {
+  .logo {
+    gap: 4px;
+  }
+
+  .logoImage {
+    height: 48px;
+  }
+
+  .logoText {
+    font-size: 1.5rem;
+  }
+
   .formRow {
     flex-direction: column;
   }

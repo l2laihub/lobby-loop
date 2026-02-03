@@ -5,11 +5,11 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className="container">
         <p className={styles.text}>
-          A{' '}
-          <a href="https://huybuilds.com" className={styles.link} target="_blank" rel="noopener noreferrer">
-            huybuilds
+          Questions?{' '}
+          <a href="mailto:hello@lobbyloop.io" className={styles.link}>
+            hello@lobbyloop.io
           </a>{' '}
-          project · Built in Seattle 🌲
+          · Built in Seattle 🌲
         </p>
       </div>
     </footer>
