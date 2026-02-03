@@ -5,7 +5,10 @@ import Features from './components/Features'
 import Hardware from './components/Hardware'
 import SocialProof from './components/SocialProof'
 import UseCases from './components/UseCases'
+import Comparison from './components/Comparison'
 import Pricing from './components/Pricing'
+import FAQ from './components/FAQ'
+import FinalCTA from './components/FinalCTA'
 import Footer from './components/Footer'
 
 function App() {
@@ -19,7 +22,10 @@ function App() {
       <Hardware />
       <SocialProof />
       <UseCases />
+      <Comparison />
       <Pricing />
+      <FAQ />
+      <FinalCTA />
       <Footer />
     </>
   )

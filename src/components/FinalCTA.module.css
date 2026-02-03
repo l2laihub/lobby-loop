@@ -1,0 +1,184 @@
+.section {
+  padding: 80px 0;
+}
+
+.card {
+  max-width: 680px;
+  margin: 0 auto;
+  padding: 48px 40px;
+  background: linear-gradient(180deg, rgba(255, 179, 71, 0.08) 0%, var(--bg-card) 100%);
+  border: 1px solid var(--gold);
+  border-radius: 24px;
+  text-align: center;
+}
+
+.headline {
+  font-family: 'Instrument Serif', serif;
+  font-size: 2.5rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.accent {
+  background: linear-gradient(135deg, var(--gold) 0%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+}
+
+.pills {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 20px;
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  min-width: 100px;
+}
+
+.pillIcon {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--gold);
+}
+
+.pillText {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form {
+  max-width: 480px;
+  margin: 0 auto 24px;
+}
+
+.formRow {
+  display: flex;
+  gap: 12px;
+}
+
+.formRow input {
+  flex: 1;
+  padding: 14px 18px;
+  background: var(--bg-dark);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  font-size: 1rem;
+  color: var(--text-primary);
+  font-family: inherit;
+  transition: border-color 0.2s ease;
+}
+
+.formRow input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+.formRow input::placeholder {
+  color: var(--text-muted);
+}
+
+.formRow button {
+  flex-shrink: 0;
+  background: var(--gold);
+  border-color: var(--gold);
+  color: var(--bg-dark);
+}
+
+.formRow button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 179, 71, 0.25);
+}
+
+.error {
+  color: var(--accent);
+  font-size: 0.875rem;
+  margin-top: 12px;
+}
+
+.success {
+  padding: 24px;
+  margin-bottom: 16px;
+}
+
+.successIcon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  background: var(--teal-glow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.successIcon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--teal);
+}
+
+.successTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.successDesc {
+  color: var(--text-secondary);
+}
+
+.note {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+@media (max-width: 600px) {
+  .card {
+    padding: 32px 24px;
+  }
+
+  .headline {
+    font-size: 1.75rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .formRow {
+    flex-direction: column;
+  }
+
+  .formRow button {
+    width: 100%;
+  }
+
+  .pills {
+    gap: 10px;
+  }
+
+  .pill {
+    min-width: 90px;
+    padding: 10px 16px;
+  }
+}
