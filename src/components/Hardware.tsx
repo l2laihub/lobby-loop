@@ -3,9 +3,9 @@ import styles from './Hardware.module.css'
 const HARDWARE_ITEMS = [
   {
     emoji: '📱',
-    title: 'Android Tablet',
-    description: '11" tablet from Amazon',
-    price: '~$78',
+    title: 'Any Tablet',
+    description: 'Budget tablet with a browser',
+    price: '~$55',
   },
   {
     emoji: '📺',
@@ -15,9 +15,9 @@ const HARDWARE_ITEMS = [
   },
   {
     emoji: '📦',
-    title: 'Android TV Box',
-    description: 'Small streaming box from Amazon',
-    price: '~$32',
+    title: 'Streaming Box',
+    description: 'Android TV box or Fire Stick',
+    price: '~$25',
   },
 ]
 
@@ -41,7 +41,7 @@ export default function Hardware() {
 
         <div className={styles.total}>
           <p className={styles.totalLabel}>Total hardware investment</p>
-          <p className={styles.totalPrice}>~$110</p>
+          <p className={styles.totalPrice}>~$80</p>
           <p className={styles.totalNote}>vs. $500+ for iPad-based setups</p>
         </div>
       </div>

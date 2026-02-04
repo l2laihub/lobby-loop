@@ -65,7 +65,7 @@ export default function FinalCTA() {
               <span className={styles.pillText}>setup</span>
             </div>
             <div className={styles.pill}>
-              <span className={styles.pillIcon}>~$110</span>
+              <span className={styles.pillIcon}>~$80</span>
               <span className={styles.pillText}>hardware</span>
             </div>
             <div className={styles.pill}>

@@ -97,7 +97,7 @@ async function sendConfirmationEmail(email: string, plan: string): Promise<{ suc
   <ul style="padding-left: 20px;">
     <li>📱 <strong>Tablet Check-in</strong> — Members tap their name to check in</li>
     <li>📺 <strong>Wall TV Display</strong> — Shows announcements, promos, and live check-ins</li>
-    <li>💰 <strong>Budget Hardware</strong> — Works on ~$110 of Android devices</li>
+    <li>💰 <strong>Budget Hardware</strong> — Works on any device with a browser (as low as ~$80)</li>
   </ul>
 
   <p>We'll email you the moment checkout is ready. You'll be among the first to get access!</p>

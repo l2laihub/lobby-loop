@@ -11,17 +11,17 @@ const FAQ_ITEMS = [
   {
     category: 'Technical',
     question: 'What devices are supported?',
-    answer: 'Check-in works on any Android tablet (7" or larger) or iPad. The wall display runs on any Android TV, Fire TV Stick, Chromecast with Google TV, or any device with a modern web browser. Most gyms use a $78 Android tablet and a $32 streaming box.',
+    answer: 'Check-in works on any tablet with a web browser — Android, iPad, or Fire tablet. The wall display runs on any Android TV, Fire TV Stick, Chromecast with Google TV, or any device with a modern web browser. Most gyms use a ~$55 budget tablet and a ~$25 streaming box.',
   },
   {
     category: 'Technical',
     question: 'Can I use the TV I already have?',
-    answer: 'Absolutely. If your TV is less than 10 years old, it probably works. Just plug in a small streaming box ($32 on Amazon) and open our display URL. No app installation needed on the TV itself.',
+    answer: 'Absolutely. If your TV is less than 10 years old, it probably works. Just plug in a small streaming box (~$25 on Amazon) and open our display URL. No app installation needed on the TV itself.',
   },
   {
     category: 'Pricing',
     question: 'Are there any hidden fees or extra costs?',
-    answer: 'None. The price you see is the price you pay. No setup fees, no transaction fees, no per-member charges. Unlimited members, unlimited check-ins, unlimited slides. The only additional cost is the hardware you provide (around $110 total).',
+    answer: 'None. The price you see is the price you pay. No setup fees, no transaction fees, no per-member charges. Unlimited members, unlimited check-ins, unlimited slides. The only additional cost is the hardware you provide (as low as ~$80).',
   },
   {
     category: 'Pricing',

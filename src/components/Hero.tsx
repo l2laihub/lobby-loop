@@ -111,6 +111,24 @@ export default function Hero() {
             Members check in on a tablet. Your TV shows announcements, tournaments, and promos.
           </p>
 
+          {/* Clarification + Hardware Callout */}
+          <div className={`${styles.clarification} animate-in animate-delay-250`}>
+            <p className={styles.clarificationText}>
+              Works on any device with a web browser — tablets, smart TVs, even old laptops.
+            </p>
+            <div className={styles.hardwareCallout}>
+              <span className={styles.hardwareIcon}>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                  <path d="M9 12l2 2 4-4" />
+                  <circle cx="12" cy="12" r="10" />
+                </svg>
+              </span>
+              <span className={styles.hardwareLabel}>
+                No special hardware needed · as low as ~$80 with budget devices
+              </span>
+            </div>
+          </div>
+
           {/* Form or Success Message */}
           {status === 'success' ? (
             <div className={`${styles.successMessage} animate-in`}>
@@ -191,13 +209,6 @@ export default function Hero() {
             </span>
           </div>
 
-          {/* Hardware Callout */}
-          <div className={`${styles.hardwareCallout} animate-in animate-delay-500`}>
-            <span className={styles.hardwarePrice}>~$110</span>
-            <span className={styles.hardwareLabel}>
-              total hardware cost<br />using budget Android devices
-            </span>
-          </div>
         </div>
       </section>
     </>
