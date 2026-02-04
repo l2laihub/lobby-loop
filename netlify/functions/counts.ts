@@ -41,6 +41,9 @@ async function fetchMailerLiteCount(plan: 'lifetime' | 'yearly', apiKey: string)
   url.searchParams.set('filter[fields][plan]', plan)
   url.searchParams.set('limit', '1') // We only need the count from meta, not the data
 
+  console.log(`Fetching MailerLite count for plan: ${plan}`)
+  console.log(`URL: ${url.toString()}`)
+
   const response = await fetch(url.toString(), {
     method: 'GET',
     headers: {
@@ -49,15 +52,18 @@ async function fetchMailerLiteCount(plan: 'lifetime' | 'yearly', apiKey: string)
     },
   })
 
+  const responseText = await response.text()
+  console.log(`MailerLite response for ${plan}: status=${response.status}, body=${responseText.substring(0, 500)}`)
+
   if (!response.ok) {
-    const errorText = await response.text()
-    console.error(`MailerLite API error for ${plan}:`, response.status, errorText)
-    throw new Error(`MailerLite API returned ${response.status}`)
+    console.error(`MailerLite API error for ${plan}:`, response.status, responseText)
+    throw new Error(`MailerLite API returned ${response.status}: ${responseText}`)
   }
 
-  const data = await response.json()
+  const data = JSON.parse(responseText)
 
   // MailerLite response includes a "total" field in meta
+  console.log(`MailerLite count for ${plan}: ${data.meta?.total || 0}`)
   return data.meta?.total || 0
 }
 
