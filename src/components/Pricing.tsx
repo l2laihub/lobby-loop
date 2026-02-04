@@ -1,64 +1,66 @@
 import { trackEvent } from '../lib/posthog'
+import { usePlanCountsContext } from '../context/PlanCountsContext'
 import styles from './Pricing.module.css'
 
-const PRICING_TIERS = [
-  {
-    id: 'lifetime',
-    tier: 'Founding 50',
-    price: 299,
-    period: 'one-time payment',
-    equivalent: 'Never pay again',
-    badge: 'Best Value',
-    badgeType: 'gold',
-    featured: true,
-    spots: '47 of 50 remaining',
-    features: [
-      'Lifetime access forever',
-      'All future updates included',
-      'Priority support',
-      'Founding member badge',
-    ],
-    cta: 'Get Lifetime Access',
-  },
-  {
-    id: 'yearly',
-    tier: 'Early Bird Yearly',
-    price: 299,
-    period: 'per year',
-    equivalent: 'Just $25/month',
-    badge: 'Save 36%',
-    badgeType: 'teal',
-    featured: false,
-    spots: 'First 100 only',
-    features: [
-      'Unlimited check-ins',
-      'Upload custom images & slides',
-      'Live attendance dashboard',
-      'Custom branding',
-    ],
-    cta: 'Go Yearly',
-  },
-  {
-    id: 'monthly',
-    tier: 'Monthly',
-    price: 39,
-    period: 'per month',
-    equivalent: '',
-    badge: '',
-    badgeType: '',
-    featured: false,
-    spots: '',
-    features: [
-      'Unlimited check-ins',
-      'Upload custom images & slides',
-      'Live attendance dashboard',
-      'Cancel anytime',
-    ],
-    cta: 'Start Monthly',
-  },
-]
-
 export default function Pricing() {
+  const { yearly, lifetimeRemainingText, loading } = usePlanCountsContext()
+
+  const PRICING_TIERS = [
+    {
+      id: 'lifetime',
+      tier: 'Founding 50',
+      price: 299,
+      period: 'one-time payment',
+      equivalent: 'Never pay again',
+      badge: 'Best Value',
+      badgeType: 'gold',
+      featured: true,
+      spots: loading ? 'Loading...' : lifetimeRemainingText,
+      features: [
+        'Lifetime access forever',
+        'All future updates included',
+        'Priority support',
+        'Founding member badge',
+      ],
+      cta: 'Get Lifetime Access',
+    },
+    {
+      id: 'yearly',
+      tier: 'Early Bird Yearly',
+      price: 299,
+      period: 'per year',
+      equivalent: 'Just $25/month',
+      badge: 'Save 36%',
+      badgeType: 'teal',
+      featured: false,
+      spots: loading ? 'Loading...' : `First ${yearly.total} only`,
+      features: [
+        'Unlimited check-ins',
+        'Upload custom images & slides',
+        'Live attendance dashboard',
+        'Custom branding',
+      ],
+      cta: 'Go Yearly',
+    },
+    {
+      id: 'monthly',
+      tier: 'Monthly',
+      price: 39,
+      period: 'per month',
+      equivalent: '',
+      badge: '',
+      badgeType: '',
+      featured: false,
+      spots: '',
+      features: [
+        'Unlimited check-ins',
+        'Upload custom images & slides',
+        'Live attendance dashboard',
+        'Cancel anytime',
+      ],
+      cta: 'Start Monthly',
+    },
+  ]
   const handlePricingClick = (plan: string) => {
     trackEvent('pricing_card_clicked', { plan })
 

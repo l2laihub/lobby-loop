@@ -1,14 +1,9 @@
 import { useState, useEffect } from 'react'
 import { trackEvent, identifyUser } from '../lib/posthog'
+import { usePlanCountsContext } from '../context/PlanCountsContext'
 import styles from './Hero.module.css'
 
 type Plan = 'lifetime' | 'yearly' | 'monthly'
-
-const PLAN_OPTIONS = [
-  { value: 'lifetime' as const, name: 'Lifetime', price: '$299 once', badge: '47 left', featured: true },
-  { value: 'yearly' as const, name: 'Yearly', price: '$299/yr', badge: 'Save 36%', featured: false },
-  { value: 'monthly' as const, name: 'Monthly', price: '$39/mo', badge: 'Flexible', featured: false },
-]
 
 const PLAN_LABELS: Record<Plan, string> = {
   lifetime: 'Founding Lifetime ($299)',
@@ -21,6 +16,21 @@ export default function Hero() {
   const [plan, setPlan] = useState<Plan>('lifetime')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [errorMessage, setErrorMessage] = useState('')
+
+  const { lifetime, lifetimeProgress, loading } = usePlanCountsContext()
+
+  // Plan options with dynamic badge for lifetime
+  const PLAN_OPTIONS = [
+    {
+      value: 'lifetime' as const,
+      name: 'Lifetime',
+      price: '$299 once',
+      badge: loading ? '...' : `${lifetime.remaining} left`,
+      featured: true,
+    },
+    { value: 'yearly' as const, name: 'Yearly', price: '$299/yr', badge: 'Save 36%', featured: false },
+    { value: 'monthly' as const, name: 'Monthly', price: '$39/mo', badge: 'Flexible', featured: false },
+  ]
 
   // Track when hero is viewed
   useEffect(() => {
@@ -174,10 +184,10 @@ export default function Hero() {
           {/* Urgency Bar */}
           <div className={`${styles.urgencyBar} animate-in animate-delay-500`}>
             <div className={styles.urgencyProgress}>
-              <div className={styles.urgencyFill} style={{ width: '94%' }} />
+              <div className={styles.urgencyFill} style={{ width: `${lifetimeProgress}%` }} />
             </div>
             <span className={styles.urgencyText}>
-              <strong>47/50</strong> Founding Lifetime spots remaining
+              <strong>{lifetime.remaining}/{lifetime.total}</strong> Founding Lifetime spots remaining
             </span>
           </div>
 

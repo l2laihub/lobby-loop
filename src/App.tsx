@@ -1,3 +1,4 @@
+import { PlanCountsProvider } from './context/PlanCountsContext'
 import Hero from './components/Hero'
 import DeviceMockups from './components/DeviceMockups'
 import HowItWorks from './components/HowItWorks'
@@ -13,7 +14,7 @@ import Footer from './components/Footer'
 
 function App() {
   return (
-    <>
+    <PlanCountsProvider>
       <div className="bg-gradient" />
       <Hero />
       <DeviceMockups />
@@ -27,7 +28,7 @@ function App() {
       <FAQ />
       <FinalCTA />
       <Footer />
-    </>
+    </PlanCountsProvider>
   )
 }
 

@@ -323,17 +323,19 @@ Currently logs to console. Needs backend integration (Netlify Forms recommended)
 
 #### Email Setup
 - [ ] Set up hello@lobbyloop.io
-  - Option A: Use free email from registrar
-  - Option B: Zoho Mail free tier
-  - Option C: Forward to personal email
+  - Option A: Use Resend email service (already have pro account)
+  - Option B: Use free email from registrar
+  - Option C: Zoho Mail free tier
+  - Option D: Forward to personal email
 - [ ] Test sending/receiving
 
 ### Phase 2: Tracking (Day 1-2)
 
 - [ ] Add analytics:
-  - Option A: Plausible ($9/mo, privacy-focused)
-  - Option B: Google Analytics (free)
-  - Option C: Netlify Analytics ($9/mo)
+  - Option A: Use Posthog 
+  - Option B: Plausible ($9/mo, privacy-focused)
+  - Option C: Google Analytics (free)
+  - Option D: Netlify Analytics ($9/mo)
 - [ ] Set up conversion goal for form submissions
 - [ ] Create tracking spreadsheet:
 
