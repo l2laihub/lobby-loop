@@ -35,13 +35,19 @@ interface CountsResponse {
   cachedAt?: string
 }
 
-async function fetchMailerLiteCount(plan: 'lifetime' | 'yearly', apiKey: string): Promise<number> {
-  // MailerLite API: filter subscribers by custom field "plan"
-  const url = new URL('https://connect.mailerlite.com/api/subscribers')
-  url.searchParams.set('filter[fields][plan]', plan)
-  url.searchParams.set('limit', '1') // We only need the count from meta, not the data
+interface Subscriber {
+  email: string
+  fields?: {
+    plan?: string
+  }
+}
 
-  console.log(`Fetching MailerLite count for plan: ${plan}`)
+async function fetchAllSubscribersAndCount(apiKey: string): Promise<{ lifetime: number; yearly: number }> {
+  // Fetch all subscribers and count by plan field
+  const url = new URL('https://connect.mailerlite.com/api/subscribers')
+  url.searchParams.set('limit', '100') // Get up to 100 subscribers
+
+  console.log(`Fetching all MailerLite subscribers`)
   console.log(`URL: ${url.toString()}`)
 
   const response = await fetch(url.toString(), {
@@ -53,36 +59,46 @@ async function fetchMailerLiteCount(plan: 'lifetime' | 'yearly', apiKey: string)
   })
 
   const responseText = await response.text()
-  console.log(`MailerLite response for ${plan}: status=${response.status}, body=${responseText.substring(0, 500)}`)
+  console.log(`MailerLite response: status=${response.status}`)
 
   if (!response.ok) {
-    console.error(`MailerLite API error for ${plan}:`, response.status, responseText)
+    console.error(`MailerLite API error:`, response.status, responseText)
     throw new Error(`MailerLite API returned ${response.status}: ${responseText}`)
   }
 
   const data = JSON.parse(responseText)
+  const subscribers: Subscriber[] = data.data || []
 
-  // MailerLite response includes a "total" field in meta
-  console.log(`MailerLite count for ${plan}: ${data.meta?.total || 0}`)
-  return data.meta?.total || 0
+  console.log(`Total subscribers fetched: ${subscribers.length}`)
+
+  // Count by plan
+  let lifetimeCount = 0
+  let yearlyCount = 0
+
+  for (const sub of subscribers) {
+    const plan = sub.fields?.plan?.toLowerCase()
+    console.log(`Subscriber ${sub.email}: plan=${plan}`)
+    if (plan === 'lifetime') lifetimeCount++
+    else if (plan === 'yearly') yearlyCount++
+  }
+
+  console.log(`Counts: lifetime=${lifetimeCount}, yearly=${yearlyCount}`)
+  return { lifetime: lifetimeCount, yearly: yearlyCount }
 }
 
 async function getCountsFromMailerLite(apiKey: string): Promise<CountsResponse> {
-  const [lifetimeCount, yearlyCount] = await Promise.all([
-    fetchMailerLiteCount('lifetime', apiKey),
-    fetchMailerLiteCount('yearly', apiKey),
-  ])
+  const counts = await fetchAllSubscribersAndCount(apiKey)
 
   return {
     lifetime: {
-      used: lifetimeCount,
+      used: counts.lifetime,
       total: PLAN_LIMITS.lifetime,
-      remaining: Math.max(0, PLAN_LIMITS.lifetime - lifetimeCount),
+      remaining: Math.max(0, PLAN_LIMITS.lifetime - counts.lifetime),
     },
     yearly: {
-      used: yearlyCount,
+      used: counts.yearly,
       total: PLAN_LIMITS.yearly,
-      remaining: Math.max(0, PLAN_LIMITS.yearly - yearlyCount),
+      remaining: Math.max(0, PLAN_LIMITS.yearly - counts.yearly),
     },
     cached: false,
   }
