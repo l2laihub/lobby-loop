@@ -11,9 +11,9 @@ interface MailerLiteResponse {
 }
 
 const PLAN_LABELS: Record<string, string> = {
-  lifetime: 'Founding Lifetime ($299)',
-  yearly: 'Early Bird Yearly ($299/yr)',
-  monthly: 'Monthly ($39/mo)',
+  lifetime: 'Founding Lifetime ($249)',
+  yearly: 'Early Bird Yearly ($199/yr)',
+  monthly: 'Monthly ($29/mo)',
 }
 
 // Add subscriber to MailerLite
@@ -104,7 +104,7 @@ async function sendConfirmationEmail(email: string, plan: string): Promise<{ suc
 
   <p style="margin-top: 30px;">
     Cheers,<br>
-    <strong>Huy</strong><br>
+    <strong>Huy Duong</strong><br>
     <span style="color: #666;">Founder, LobbyLoop</span>
   </p>
 

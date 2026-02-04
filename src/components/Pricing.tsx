@@ -9,7 +9,7 @@ export default function Pricing() {
     {
       id: 'lifetime',
       tier: 'Founding 50',
-      price: 299,
+      price: 249,
       period: 'one-time payment',
       equivalent: 'Never pay again',
       badge: 'Best Value',
@@ -27,10 +27,10 @@ export default function Pricing() {
     {
       id: 'yearly',
       tier: 'Early Bird Yearly',
-      price: 299,
+      price: 199,
       period: 'per year',
-      equivalent: 'Just $25/month',
-      badge: 'Save 36%',
+      equivalent: 'Just $17/month',
+      badge: 'Save 41%',
       badgeType: 'teal',
       featured: false,
       spots: loading ? 'Loading...' : `First ${yearly.total} only`,
@@ -45,7 +45,7 @@ export default function Pricing() {
     {
       id: 'monthly',
       tier: 'Monthly',
-      price: 39,
+      price: 29,
       period: 'per month',
       equivalent: '',
       badge: '',

@@ -16,14 +16,14 @@ const COMPARISONS = [
       'Zero cost',
       'Works offline',
     ],
-    verdict: '$39/mo replaces guesswork with data you can act on.',
+    verdict: '$29/mo replaces guesswork with data you can act on.',
   },
   {
     vs: 'Full Gym Software',
     icon: '🏢',
     subtitle: 'Mindbody, Zen Planner, etc.',
     lobbyloopWins: [
-      '10x cheaper ($39 vs $400/mo)',
+      '10x cheaper ($29 vs $400/mo)',
       'Setup in 30 min vs days',
       'No training required',
       'Works alongside existing tools',

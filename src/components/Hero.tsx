@@ -6,9 +6,9 @@ import styles from './Hero.module.css'
 type Plan = 'lifetime' | 'yearly' | 'monthly'
 
 const PLAN_LABELS: Record<Plan, string> = {
-  lifetime: 'Founding Lifetime ($299)',
-  yearly: 'Early Bird Yearly ($299/yr)',
-  monthly: 'Monthly ($39/mo)',
+  lifetime: 'Founding Lifetime ($249)',
+  yearly: 'Early Bird Yearly ($199/yr)',
+  monthly: 'Monthly ($29/mo)',
 }
 
 export default function Hero() {
@@ -24,12 +24,12 @@ export default function Hero() {
     {
       value: 'lifetime' as const,
       name: 'Lifetime',
-      price: '$299 once',
+      price: '$249 once',
       badge: loading ? '...' : `${lifetime.remaining} left`,
       featured: true,
     },
-    { value: 'yearly' as const, name: 'Yearly', price: '$299/yr', badge: 'Save 36%', featured: false },
-    { value: 'monthly' as const, name: 'Monthly', price: '$39/mo', badge: 'Flexible', featured: false },
+    { value: 'yearly' as const, name: 'Yearly', price: '$199/yr', badge: 'Save 41%', featured: false },
+    { value: 'monthly' as const, name: 'Monthly', price: '$29/mo', badge: 'Flexible', featured: false },
   ]
 
   // Track when hero is viewed

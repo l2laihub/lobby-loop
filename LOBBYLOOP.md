@@ -323,19 +323,17 @@ Currently logs to console. Needs backend integration (Netlify Forms recommended)
 
 #### Email Setup
 - [ ] Set up hello@lobbyloop.io
-  - Option A: Use Resend email service (already have pro account)
-  - Option B: Use free email from registrar
-  - Option C: Zoho Mail free tier
-  - Option D: Forward to personal email
+  - Option A: Use free email from registrar
+  - Option B: Zoho Mail free tier
+  - Option C: Forward to personal email
 - [ ] Test sending/receiving
 
 ### Phase 2: Tracking (Day 1-2)
 
 - [ ] Add analytics:
-  - Option A: Use Posthog 
-  - Option B: Plausible ($9/mo, privacy-focused)
-  - Option C: Google Analytics (free)
-  - Option D: Netlify Analytics ($9/mo)
+  - Option A: Plausible ($9/mo, privacy-focused)
+  - Option B: Google Analytics (free)
+  - Option C: Netlify Analytics ($9/mo)
 - [ ] Set up conversion goal for form submissions
 - [ ] Create tracking spreadsheet:
 
@@ -564,6 +562,161 @@ lobbyloop/
 - **Builder:** Huy Duong
 - **Email:** (set up hello@lobbyloop.io)
 - **Brand:** huybuilds
+
+---
+
+## Business Model Assessment
+
+### Executive Summary
+
+| Category | Score | Notes |
+|----------|-------|-------|
+| **Market Opportunity** | 7/10 | Niche intersection of two growing markets |
+| **Competitive Positioning** | 8/10 | Unique combo, clear differentiation |
+| **Pricing Power** | 7/10 | Strong value prop vs alternatives |
+| **Barrier to Entry** | 4/10 | Low technical moat, easy to copy |
+| **Target Customer Clarity** | 8/10 | Well-defined ICP |
+| **Revenue Potential** | 6/10 | Good lifestyle biz, limited venture scale |
+| **Execution Risk** | 3/10 | Low risk, already running at HEVA |
+| **Scalability** | 6/10 | Can scale, but requires sales effort |
+| **Overall Score** | **6.5/10** | Solid micro-SaaS, not a unicorn |
+
+### Market Size (Research-Backed)
+
+| Market | 2024 Size | Growth Rate |
+|--------|-----------|-------------|
+| Gym Management Software | $533M - $850M | 9-13% CAGR |
+| Digital Signage (Total) | $22B - $28B | 7-10% CAGR |
+| Digital Signage (Small Biz) | $9.4B | 8.5% CAGR |
+| Digital Signage Software | $11.7B | 13% CAGR |
+
+### LobbyLoop's Addressable Market
+
+LobbyLoop sits at the intersection of gym software and digital signage — a niche slice:
+
+- ~40,000 martial arts gyms in US
+- ~35,000 yoga studios in US
+- ~15,000 CrossFit boxes
+- ~50,000+ other boutique fitness studios
+
+**Estimated TAM:**
+- Conservative (5% underserved): ~7,000 customers × $468/yr = **~$3.3M ARR**
+- Optimistic (20% underserved): ~28,000 customers × $468/yr = **~$13M ARR**
+
+### Competitive Gap Analysis
+
+**Direct Competitors (Gym Management):**
+
+| Competitor | Price | Check-in | Wall Display | Budget HW |
+|------------|-------|----------|--------------|-----------|
+| Mindbody | $129-599/mo | ✅ | ❌ | ❌ (iPad) |
+| Gymdesk | $75/mo | ✅ | ❌ | ❌ |
+| Glofox | ~$100+/mo | ✅ | ❌ | ❌ |
+| GymMaster | ~$89/mo | ✅ | ❌ | ❌ |
+| PushPress | Free-$159/mo | ✅ | ❌ | ❌ |
+| **LobbyLoop** | **$39/mo** | **✅** | **✅** | **✅** |
+
+**Digital Signage Competitors:**
+
+| Competitor | Price | Check-in | Gym Focus |
+|------------|-------|----------|-----------|
+| Yodeck | $7-20/screen/mo | ❌ | ❌ |
+| ScreenCloud | $20/screen/mo | ❌ | ❌ |
+| Look Digital | $5.40/screen/mo | ❌ | ❌ |
+| **LobbyLoop** | **$39/mo (both)** | **✅** | **✅** |
+
+**LobbyLoop's Unique Position:**
+1. **Only solution** combining check-in + promotional display
+2. **70% cheaper** than Mindbody ($39 vs $129+)
+3. **Gym-specific** content (tournaments, class schedules)
+4. **Budget hardware** emphasis ($110 vs $500+ iPad setups)
+
+### Strengths
+
+| Strength | Why It Matters |
+|----------|----------------|
+| Real proof | Running at HEVA BJJ for 3 months, 87 members |
+| Clear pain point | Sign-in sheets suck, lobby TVs are wasted |
+| Price anchoring | $39 vs $129+ is compelling |
+| Two-screen hook | Memorable, differentiating |
+| Budget hardware | $110 vs $500 is real savings |
+| Niche focus | Not trying to be everything |
+| Low CAC potential | Word of mouth in tight-knit gym communities |
+
+### Weaknesses
+
+| Weakness | Risk Level | Mitigation |
+|----------|------------|------------|
+| Low moat | High | Build community, brand loyalty |
+| Easy to copy | High | Move fast, own the niche |
+| Small market | Medium | Expand to salons, studios, other verticals |
+| No billing/scheduling | Medium | Position as "add-on" not replacement |
+| Hardware support | Medium | Keep hardware generic, not proprietary |
+
+### Revenue Projections
+
+**Conservative Scenario (Lifestyle Business):**
+
+| Metric | Year 1 | Year 2 | Year 3 |
+|--------|--------|--------|--------|
+| Customers | 50 | 150 | 300 |
+| ARR | $24K | $72K | $144K |
+| Net (after costs) | $19K | $62K | $124K |
+
+**Optimistic Scenario (Growth Focus):**
+
+| Metric | Year 1 | Year 2 | Year 3 |
+|--------|--------|--------|--------|
+| Customers | 100 | 400 | 1,000 |
+| ARR | $48K | $192K | $480K |
+| Net (after costs) | $38K | $162K | $420K |
+
+### Scoring Breakdown
+
+1. **Market Opportunity (7/10):** Two growing markets, clear underserved segment, but niche size (~$10-15M realistic TAM)
+
+2. **Competitive Positioning (8/10):** Unique two-screen combo, 70%+ cheaper than alternatives, budget hardware angle
+
+3. **Pricing Power (7/10):** $39/mo vs $129+ is compelling, $299 lifetime validates serious interest
+
+4. **Barrier to Entry (4/10):** Technology not complex, no patents, anyone could build in weeks, brand/community only moats
+
+5. **Target Customer Clarity (8/10):** Very clear ICP, known pain points, reachable via Reddit/FB groups
+
+6. **Revenue Potential (6/10):** Enough for lifestyle business ($100K-500K ARR), not venture-scale
+
+7. **Execution Risk (3/10 = Low):** Already built and running, proven tech stack, low upfront investment
+
+8. **Scalability (6/10):** Software scales, no hardware to ship, but sales/support requires effort
+
+### Final Verdict
+
+**Overall Score: 6.5/10 — Solid Micro-SaaS Opportunity**
+
+| Score Range | Interpretation |
+|-------------|----------------|
+| 8-10 | Strong venture-scale opportunity |
+| **6-7** | **Solid micro-SaaS / lifestyle business** ← LobbyLoop |
+| 4-5 | Risky, needs more validation |
+| 1-3 | Don't pursue |
+
+**LobbyLoop is worth pursuing if:**
+- You want a profitable side business ($50K-200K/yr)
+- You enjoy the BJJ/fitness community
+- You're okay with slower, organic growth
+- You don't need venture funding or massive scale
+
+**What would improve the score:**
+
+| Improvement | Impact | Effort |
+|-------------|--------|--------|
+| Get 10+ paying customers fast | +1.0 | Low |
+| Expand to salons/other verticals | +1.0 | Medium |
+| Add SMS notifications | +0.5 | Medium |
+| Integrate with Stripe for payments | +0.5 | Medium |
+| White-label for gym software providers | +1.0 | High |
+
+**Bottom Line:** Proceed with validation. Spend 2 weeks, $50-100 on ads, and see what happens. If you get 50+ signups with strong payment intent signals, build it out. If not, you've learned something cheap.
 
 ---
 
