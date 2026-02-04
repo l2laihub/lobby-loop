@@ -19,7 +19,7 @@ interface CacheEntry {
 }
 
 let cache: CacheEntry | null = null
-const CACHE_TTL_MS = 60 * 1000 // 1 minute
+const CACHE_TTL_MS = 0 // Disabled for debugging
 
 interface PlanCount {
   used: number
@@ -76,6 +76,8 @@ async function fetchAllSubscribersAndCount(apiKey: string): Promise<{ lifetime: 
   let yearlyCount = 0
 
   for (const sub of subscribers) {
+    // Log the full subscriber object to see the actual structure
+    console.log(`Subscriber data:`, JSON.stringify(sub, null, 2))
     const plan = sub.fields?.plan?.toLowerCase()
     console.log(`Subscriber ${sub.email}: plan=${plan}`)
     if (plan === 'lifetime') lifetimeCount++
