@@ -7,6 +7,58 @@
   margin-bottom: 48px;
 }
 
+.unlimitedBanner {
+  text-align: center;
+  margin-bottom: 40px;
+  padding: 28px 32px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  max-width: 780px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.unlimitedItems {
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.unlimitedItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.unlimitedCheck {
+  width: 22px;
+  height: 22px;
+  background: var(--teal-glow);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.unlimitedCheck svg {
+  width: 12px;
+  height: 12px;
+  stroke: var(--teal);
+}
+
+.unlimitedNote {
+  font-size: 0.85rem;
+  color: var(--gold);
+  font-style: italic;
+}
+
 .grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -169,6 +221,19 @@
   stroke: var(--teal);
 }
 
+.checkGold {
+  background: rgba(255, 179, 71, 0.15);
+}
+
+.checkGold svg {
+  stroke: var(--gold);
+}
+
+.featureHighlight {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
 .btn {
   width: 100%;
   padding: 14px;
@@ -228,5 +293,17 @@
   .grid {
     grid-template-columns: 1fr;
     max-width: 400px;
+  }
+}
+
+@media (max-width: 600px) {
+  .unlimitedItems {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .unlimitedBanner {
+    padding: 20px;
   }
 }

@@ -17,6 +17,8 @@ export default function Pricing() {
       featured: true,
       spots: loading ? 'Loading...' : lifetimeRemainingText,
       features: [
+        'Unlimited tablets & displays',
+        'Unlimited locations',
         'Lifetime access forever',
         'All future updates included',
         'Priority support',
@@ -35,6 +37,8 @@ export default function Pricing() {
       featured: false,
       spots: loading ? 'Loading...' : `First ${yearly.total} only`,
       features: [
+        'Unlimited tablets & displays',
+        'Unlimited locations',
         'Unlimited check-ins',
         'Upload custom images & slides',
         'Live attendance dashboard',
@@ -53,6 +57,8 @@ export default function Pricing() {
       featured: false,
       spots: '',
       features: [
+        'Unlimited tablets & displays',
+        'Unlimited locations',
         'Unlimited check-ins',
         'Upload custom images & slides',
         'Live attendance dashboard',
@@ -87,6 +93,46 @@ export default function Pricing() {
         <div className={styles.header}>
           <p className="section-label">Early Access Pricing</p>
           <h2 className="section-title">Lock in founding member rates</h2>
+        </div>
+
+        <div className={styles.unlimitedBanner}>
+          <div className={styles.unlimitedItems}>
+            <div className={styles.unlimitedItem}>
+              <span className={styles.unlimitedCheck}>
+                <svg viewBox="0 0 24 24" fill="none" strokeWidth="3" strokeLinecap="round">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              </span>
+              <span>Unlimited check-in tablets</span>
+            </div>
+            <div className={styles.unlimitedItem}>
+              <span className={styles.unlimitedCheck}>
+                <svg viewBox="0 0 24 24" fill="none" strokeWidth="3" strokeLinecap="round">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              </span>
+              <span>Unlimited wall displays</span>
+            </div>
+            <div className={styles.unlimitedItem}>
+              <span className={styles.unlimitedCheck}>
+                <svg viewBox="0 0 24 24" fill="none" strokeWidth="3" strokeLinecap="round">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              </span>
+              <span>Unlimited locations</span>
+            </div>
+            <div className={styles.unlimitedItem}>
+              <span className={styles.unlimitedCheck}>
+                <svg viewBox="0 0 24 24" fill="none" strokeWidth="3" strokeLinecap="round">
+                  <path d="M20 6L9 17l-5-5" />
+                </svg>
+              </span>
+              <span>One centralized dashboard</span>
+            </div>
+          </div>
+          <p className={styles.unlimitedNote}>
+            Unlike competitors who charge per screen ($8–20/screen), LobbyLoop is one price for unlimited devices
+          </p>
         </div>
 
         <div className={styles.grid}>
@@ -125,9 +171,9 @@ export default function Pricing() {
               )}
 
               <div className={styles.features}>
-                {tier.features.map((feature) => (
-                  <div key={feature} className={styles.feature}>
-                    <span className={styles.check}>
+                {tier.features.map((feature, featureIndex) => (
+                  <div key={feature} className={`${styles.feature} ${featureIndex < 2 ? styles.featureHighlight : ''}`}>
+                    <span className={`${styles.check} ${featureIndex < 2 ? styles.checkGold : ''}`}>
                       <svg viewBox="0 0 24 24" fill="none" strokeWidth="3" strokeLinecap="round">
                         <path d="M20 6L9 17l-5-5" />
                       </svg>

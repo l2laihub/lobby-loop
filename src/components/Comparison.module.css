@@ -2,6 +2,135 @@
   padding: 80px 0;
 }
 
+/* Comparison Table - Desktop */
+.tableWrapper {
+  max-width: 900px;
+  margin: 0 auto 48px;
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.table th,
+.table td {
+  padding: 14px 18px;
+  text-align: left;
+  font-size: 0.875rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.table th {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  font-weight: 600;
+  background: var(--bg-elevated);
+}
+
+.table td {
+  color: var(--text-secondary);
+}
+
+.tableFeature {
+  font-weight: 500;
+  color: var(--text-primary) !important;
+}
+
+.tableHighlight {
+  color: var(--teal) !important;
+  font-weight: 600;
+}
+
+.table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.tableFootnotes {
+  margin-top: 12px;
+  display: flex;
+  gap: 24px;
+  justify-content: center;
+}
+
+.tableFootnotes p {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Comparison Table - Mobile (stacked cards) */
+.tableCards {
+  display: none;
+  max-width: 480px;
+  margin: 0 auto 48px;
+}
+
+.tableCard {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 12px;
+}
+
+.tableCardLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+}
+
+.tableCardValues {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.tableCardValue {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.tableCardTag {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  background: var(--bg-elevated);
+  padding: 2px 8px;
+  border-radius: 4px;
+  min-width: 72px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.tableCardValueHighlight {
+  color: var(--teal);
+  font-weight: 600;
+}
+
+/* Subsection Title */
+.subsectionTitle {
+  font-family: 'Instrument Serif', serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 32px;
+  color: var(--text-primary);
+}
+
+/* Existing card grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -143,6 +272,20 @@
   .grid {
     grid-template-columns: 1fr;
     max-width: 480px;
+  }
+
+  .tableWrapper {
+    display: none;
+  }
+
+  .tableCards {
+    display: block;
+  }
+
+  .tableFootnotes {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
   }
 }
 

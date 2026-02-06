@@ -34,6 +34,21 @@ const FAQ_ITEMS = [
     answer: 'You can export all your member data and attendance history as a CSV anytime. After cancellation, we retain your data for 30 days in case you want to reactivate, then it\'s permanently deleted.',
   },
   {
+    category: 'Pricing',
+    question: 'How many screens/devices can I use?',
+    answer: 'Unlimited. Use 1 tablet or 10 tablets, 1 TV or 20 TVs — it\'s the same price. Unlike competitors who charge $8-20 per screen, LobbyLoop includes unlimited devices on every plan.',
+  },
+  {
+    category: 'Pricing',
+    question: 'Do you charge per location?',
+    answer: 'Nope. Manage all your locations from one dashboard at one price. Whether you have one gym or five, your monthly cost stays the same.',
+  },
+  {
+    category: 'Pricing',
+    question: 'What if I want to add more screens later?',
+    answer: 'Just buy the hardware (~$110 for a tablet + streaming stick) and log into LobbyLoop. There\'s no extra subscription cost, no per-device fee, and no need to contact us. Add as many as you want.',
+  },
+  {
     category: 'Setup',
     question: 'How long does setup take?',
     answer: 'Most gyms are fully operational in under 30 minutes. Import your member list (CSV upload or manual entry), create a few slides for your TV, and open LobbyLoop on your devices. That\'s it.',
@@ -57,6 +72,11 @@ const FAQ_ITEMS = [
     category: 'Comparison',
     question: 'Why not just use a paper sign-in sheet?',
     answer: 'Paper works, but you lose the data. With LobbyLoop, you instantly know attendance trends, peak hours, and who hasn\'t shown up lately. Plus, your lobby TV becomes a marketing channel instead of a blank screen or cable news.',
+  },
+  {
+    category: 'Comparison',
+    question: 'Why don\'t you charge per screen like other digital signage companies?',
+    answer: 'We think your business shouldn\'t be penalized for growing. Per-screen pricing ($8-20/screen) adds up fast when you have multiple check-in points and displays. We charge a flat rate so you can deploy as many screens as you need without worrying about the cost.',
   },
   {
     category: 'Security',

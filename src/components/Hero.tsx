@@ -107,8 +107,7 @@ export default function Hero() {
 
           {/* Subtitle */}
           <p className={`${styles.subtitle} animate-in animate-delay-200`}>
-            Two-screen system for gyms, studios, and small businesses.
-            Members check in on a tablet. Your TV shows announcements, tournaments, and promos.
+            Two screens or twenty. One location or ten. Same price: <span className={styles.subtitlePrice}>$29/month</span>.
           </p>
 
           {/* Clarification + Hardware Callout */}
